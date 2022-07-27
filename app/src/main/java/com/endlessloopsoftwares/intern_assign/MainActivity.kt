@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         myViewBinding.nextButton.setOnClickListener {
             Toast.makeText(this, "$currSelection $currUnit", Toast.LENGTH_LONG).show()
         }
+        myViewBinding.backButton.setOnClickListener{onBackPressed()}
     }
 
     private fun setUpLayoutManager(isUnitCm: Boolean) {
