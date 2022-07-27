@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <View
+        android:id="@+id/measurement_stick"
+        android:layout_width="2dp"
+        android:layout_height="18dp"
+        android:background="@color/black"/>
+    <TextView
+        android:id="@+id/measurement_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textSize="24sp"
+        android:visibility="invisible"/>
+</LinearLayout>

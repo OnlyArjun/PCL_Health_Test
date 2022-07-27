@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Intern_Assign</string>
+    <string name="heading_upper">Complete Your Profile</string>
+    <string name="sub_heading">Adding these details will help us better understand your medical condition</string>
+    <string name="next_button_text">Next</string>
+    <string name="back_button_cd">Back Button</string>
+    <string name="profile_completion_text">Profile Completion</string>
+    <string name="curr_profile_completion">30%</string>
+    <string name="height_heading">HEIGHT</string>
+    <string name="footText">%1s\'</string>
+    <string name="footInchText">%1s\' %2s\'\'</string>
+</resources>

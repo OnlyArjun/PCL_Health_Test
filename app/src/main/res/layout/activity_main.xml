@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            android:contentDescription="@string/back_button_cd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_upper"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/sub_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/assistant_font"
+            android:gravity="center"
+            android:text="@string/sub_heading"
+            android:textColor="#B3000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/height_heading"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/heading"
+            app:layout_constraintTop_toBottomOf="@id/sub_heading" />
+
+        <RadioGroup
+            android:id="@+id/measurement_unit_group"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/outline_bg"
+            android:checkedButton="@id/cm_radio_button"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="@id/heading"
+            app:layout_constraintTop_toBottomOf="@id/sub_heading">
+
+            <RadioButton
+                android:id="@+id/cm_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="cm"
+                android:textColor="@color/toggle_text_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/ft_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="ft"
+                android:textColor="@color/toggle_text_color"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_measurement"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="25dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/measurement_unit_group" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/rv_measurement"
+            app:layout_constraintEnd_toEndOf="@id/rv_measurement"
+            app:layout_constraintTop_toTopOf="@id/rv_measurement"
+            android:orientation="vertical"
+            android:gravity="center">
+            <View
+                android:id="@+id/display_stick"
+                android:layout_width="2dp"
+                android:layout_height="18dp"
+                android:background="@color/appPrimary"
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/display_measurement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/appPrimary"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/separator_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="#E9E9E9"
+            app:layout_constraintBottom_toTopOf="@id/nextButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_completion_text"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/profile_progress_percent"
+            app:layout_constraintStart_toStartOf="@id/profile_progress_percent" />
+
+        <TextView
+            android:id="@+id/profile_progress_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/curr_profile_completion"
+            android:textColor="#029D94"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/profile_progress_bar"
+            app:layout_constraintStart_toStartOf="@id/nextButton"
+            app:layout_constraintTop_toTopOf="@id/profile_progress_bar" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/profile_progress_bar"
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="25dp"
+            android:max="100"
+            android:progress="70"
+            app:indicatorColor="#029D94"
+            app:layout_constraintBottom_toTopOf="@id/separator_line"
+            app:layout_constraintStart_toEndOf="@+id/profile_progress_percent"
+            app:trackColor="@color/white"
+            app:trackCornerRadius="45dp" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="45dp"
+            android:background="@drawable/next_button_bg"
+            android:text="@string/next_button_text"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
